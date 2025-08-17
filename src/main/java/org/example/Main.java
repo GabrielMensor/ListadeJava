@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        exercicio02();
+        exercicio05();
     }
 
     static void exercicio01() {
@@ -45,10 +45,20 @@ public class Main {
     }
 
     static void exercicio05() {
-        String nome = "Teclado";
-        int codigo = 12345;
-        double preco = 99.9;
-        boolean promocao = true;
-        System.out.println("Nome: " + nome + "\n" + "Código: " + codigo + "\n" + "Preço: " + preco + "\n" + "Em Promoção: " + promocao);
+        Scanner leitor = new Scanner(System.in);
+        int idade;
+
+        System.out.println("Digite sua idade: ");
+        idade = leitor.nextInt();
+
+        if(idade < 12) {
+            System.out.println("Categoria: Infantil");
+        } else if(idade >= 12 && idade <= 17) {
+            System.out.println("Categoria: Adolescente");
+        } else if(idade >= 18) {
+            System.out.println("Categoria: Adulto");
+        } else {
+            System.out.println("Algo de errado aconteceu");
+        }
     }
 }

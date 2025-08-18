@@ -3,8 +3,10 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner leitor = new Scanner(System.in);
+
     public static void main(String[] args) {
-        exercicio05();
+        exercicio09();
     }
 
     static void exercicio01() {
@@ -31,7 +33,6 @@ public class Main {
     }
 
     static void exercicio04() {
-        Scanner leitor = new Scanner(System.in);
         Double valorCompra;
 
         System.out.println("Digite o valor da compra: ");
@@ -45,7 +46,6 @@ public class Main {
     }
 
     static void exercicio05() {
-        Scanner leitor = new Scanner(System.in);
         int idade;
 
         System.out.println("Digite sua idade: ");
@@ -60,5 +60,82 @@ public class Main {
         } else {
             System.out.println("Algo de errado aconteceu");
         }
+    }
+
+    static void exercicio06() {
+        int[] notas = {7, 8, 6, 9, 10};
+
+        int soma = 0;
+        for (int n : notas) {
+            soma += n;
+        }
+        System.out.println(notas);
+        System.out.println("Média: " + soma/notas.length);
+    }
+
+    static void exercicio07() {
+        double peso = 0;
+        double altura = 0;
+        double imc = 0;
+
+        System.out.print("Digite o peso (kg): ");
+        String pesoStr = leitor.next();
+        pesoStr = pesoStr.replace(',', '.'); // aceita vírgula ou ponto
+        try {
+            peso = Double.parseDouble(pesoStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Valor de peso inválido!");
+            return;
+        }
+
+        System.out.print("Digite a altura (m): ");
+        String alturaStr = leitor.next();
+        alturaStr = alturaStr.replace(',', '.'); // aceita vírgula ou ponto
+        try {
+            altura = Double.parseDouble(alturaStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Valor de altura inválido!");
+            return;
+        }
+
+        imc = calcularIMC(peso, altura);
+
+        System.out.printf("O IMC é: %.2f%n", imc);
+    }
+    static double calcularIMC(double peso, double altura) {
+        return peso / (altura * altura);
+    }
+
+    static void exercicio08() {
+        System.out.print("Digite o nome completo: ");
+        String nome = leitor.nextLine();
+
+        int numCaracteres = nome.replace(" ", "").length();
+
+        String maiusculas = nome.toUpperCase();
+
+        boolean contemSilva = nome.contains("Silva");
+
+        // Saída
+        System.out.println("Número de caracteres: " + numCaracteres);
+        System.out.println("Maiúsculas: " + maiusculas);
+        System.out.println("Contém \"Silva\": " + contemSilva);
+    }
+
+    static void exercicio09() {
+        System.out.print("Digite o nome: ");
+        String nome = leitor.nextLine();
+
+        System.out.print("Digite a idade: ");
+        int idade = leitor.nextInt();
+        leitor.nextLine(); // limpar o buffer do nextInt
+
+        System.out.print("Digite o email: ");
+        String email = leitor.nextLine();
+
+        System.out.println("\n--- Cadastro realizado ---");
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Email: " + email);
     }
 }

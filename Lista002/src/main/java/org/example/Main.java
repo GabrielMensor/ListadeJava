@@ -53,10 +53,8 @@ public class Main {
 //        short idade = (short) (random.nextInt(18, 65));
 //
 //        System.out.println(nome + " " + sobrenome + " é um futebolista brasileiro de " + idade + " anos que atua como " + posicao + ". Atualmente defende o " + clube + ".");
-    System.out.println(
-            williamBigode.nome + " " + williamBigode.sobrenome + "é um futebolista brasileiro de "
-                + williamBigode.idade + "anos que atua como " + williamBigode.posicao
-                + ". Atualmente defende o " + williamBigode.clube);
+
+        williamBigode.exibeJogador();
     }
 
     static void exercicio03() {

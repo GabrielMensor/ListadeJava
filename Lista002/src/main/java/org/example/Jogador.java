@@ -54,7 +54,7 @@ public class Jogador {
     }
 
     public void setIdade(Short idade) {
-        if (idade < 16) {
+        if (idade >= 16) {
             this.idade = idade;
         }
     }

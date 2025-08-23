@@ -1,10 +1,11 @@
 package org.example;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        exercicio02();
+        exercicio03();
     }
 
     static void exercicio01() {
@@ -50,5 +51,35 @@ public class Main {
         for (Jogador jogador : jogadores) {
             jogador.exibeJogador();
         }
+    }
+
+    static void exercicio03() {
+        String[] nomes = {
+                "Pikachu", "Charmander", "Bulbasaur", "Squirtle", "Eevee",
+                "Jigglypuff", "Meowth", "Psyduck", "Snorlax", "Gengar"
+        };
+
+        String[] tipos = {
+                "Elétrico", "Fogo", "Planta", "Água", "Normal",
+                "Fantasma", "Voador", "Lutador", "Pedra", "Psíquico"
+        };
+
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Quantos Pokémon você deseja gerar? ");
+        int quantidade = scanner.nextInt();
+        System.out.println();
+
+        for(int i = 0; i < quantidade; i++) {
+            String nome = nomes[random.nextInt(nomes.length)];
+            String tipo = tipos[random.nextInt(tipos.length)];
+            int nivel = random.nextInt(1, 100);
+
+            Pokemon p = new Pokemon(nome, tipo, nivel);
+            p.mostrarInfo();
+        }
+
+        scanner.close();
     }
 }

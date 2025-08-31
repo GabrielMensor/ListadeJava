@@ -1,10 +1,11 @@
 package org.example;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        exercicio02();
+        exercicio03();
     }
 
     static void exercicio01() {
@@ -85,5 +86,31 @@ public class Main {
             PortoDeSantos.atracarBarco(barco);
         }
 
+    }
+
+    static void exercicio03() {
+        Scanner scanner = new Scanner(System.in);
+        MusicCloud cloud = new MusicCloud();
+
+        System.out.println("Digite o nome da playlist: ");
+        String nomePlaylist = scanner.nextLine();
+        Playlist playlist = new Playlist(nomePlaylist);
+
+        while (true) {
+            System.out.println("Digite o nome da música (ou 'sair' para finalizar): ");
+            String tituloMusica = scanner.nextLine();
+
+            if(tituloMusica.equalsIgnoreCase("sair")) break;
+
+            try {
+                Musica musica = cloud.buscarMusica(tituloMusica);
+                playlist.adicionarMusica(musica);
+            } catch(Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        playlist.imprimirPlaylist();
+        scanner.close();
     }
 }

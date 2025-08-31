@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        exercicio01();
+        exercicio02();
     }
 
     static void exercicio01() {
@@ -60,5 +60,30 @@ public class Main {
                 }
             }
         }
+    }
+
+    static void exercicio02() {
+        Barco netuno = new Barco("Netuno", 20);
+        Barco rincao = new Barco("Rincão", 7);
+        Barco atlantico = new Barco("Atlântico", 50);
+        Barco juncos = new Barco("Juncos", 9);
+        Barco poseidon = new Barco("Poseidon", 12);
+
+        Barco [] barcos = {
+                netuno,
+                rincao,
+                atlantico,
+                juncos,
+                poseidon
+        };
+
+        PortoPequeno PortoDeItapoa = new PortoPequeno("Porto de Itapoá");
+        PortoGrande PortoDeSantos = new PortoGrande("Porto de Santos");
+
+        for (Barco barco : barcos) {
+            PortoDeItapoa.atracarBarco(barco);
+            PortoDeSantos.atracarBarco(barco);
+        }
+
     }
 }

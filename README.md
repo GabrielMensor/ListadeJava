@@ -17,6 +17,7 @@ O nome da pasta indica o propósito ou funcionalidade principal daquele exercíc
 ├── Lista002/
 ├── Lista002-objetos/
 ├── Lista003/
+├── Lista005/
 └── ...
 ```
 
@@ -39,6 +40,10 @@ A Lista002 refeita com foco em POO (Programação Orientada a Objeto)
 ### Lista003
 
 Terceira lista, na enunciados, como foco em POO também
+
+### Lista005
+
+Terceira lista, na enunciados, com maior aprofundamento nos conceitos de POO
 
 ---
 

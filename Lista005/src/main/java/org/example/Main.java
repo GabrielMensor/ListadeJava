@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        exercicio03();
+        exercicio05();
     }
 
     static void exercicio01() {
@@ -113,4 +113,120 @@ public class Main {
         playlist.imprimirPlaylist();
         scanner.close();
     }
+
+    static void exercicio04() {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Digite o título da postagem:");
+            String titulo = scanner.nextLine();
+
+            System.out.println("Digite a descrição da postagem:");
+            String descricao = scanner.nextLine();
+
+            System.out.println("Digite o tipo da postagem (TEXTO, IMAGEM, VIDEO):");
+            String tipoInput = scanner.nextLine().toUpperCase();
+
+            TipoPostagem tipo = TipoPostagem.valueOf(tipoInput);
+
+            Postagem postagem = new Postagem(titulo, descricao, tipo);
+
+            MyBook myBook = new MyBook();
+            Fotogram fotogram = new Fotogram();
+            AnyTube anyTube = new AnyTube();
+
+            // MyBook
+            try {
+                if (postagem.getTipo() == TipoPostagem.TEXTO) {
+                    myBook.compartilharPostagem(postagem);
+                } else if (postagem.getTipo() == TipoPostagem.IMAGEM) {
+                    myBook.compartilharImagem(postagem);
+                } else {
+                    myBook.compartilharVideo(postagem);
+                }
+            } catch (Exception e) {
+                System.out.println("Ocorreu um erro ao compartilhar no MyBook: " + e.getMessage());
+            }
+
+            // Fotogram
+            try {
+                if (postagem.getTipo() == TipoPostagem.TEXTO) {
+                    fotogram.compartilharPostagem(postagem);
+                } else if (postagem.getTipo() == TipoPostagem.IMAGEM) {
+                    fotogram.compartilharImagem(postagem);
+                } else {
+                    fotogram.compartilharVideo(postagem);
+                }
+            } catch (Exception e) {
+                System.out.println("Ocorreu um erro ao compartilhar no Fotogram: " + e.getMessage());
+            }
+
+            // AnyTube
+            try {
+                if (postagem.getTipo() == TipoPostagem.TEXTO) {
+                    anyTube.compartilharPostagem(postagem);
+                } else if (postagem.getTipo() == TipoPostagem.IMAGEM) {
+                    anyTube.compartilharImagem(postagem);
+                } else {
+                    anyTube.compartilharVideo(postagem);
+                }
+            } catch (Exception e) {
+                System.out.println("Ocorreu um erro ao compartilhar no AnyTube: " + e.getMessage());
+            }
+
+            scanner.close();
+        }
+
+        static void exercicio05() {
+            Scanner sc = new Scanner(System.in);
+            Cinema cinema = new Cinema();
+
+            // Adiciona filmes
+            cinema.adicionarFilme(new Filme("Homem Aranha", 20.0, 16));
+            cinema.adicionarFilme(new Filme("Vingadores", 25.0, 14));
+            cinema.adicionarFilme(new Filme("Toy Story", 15.0, 0));
+            cinema.adicionarFilme(new Filme("Matrix", 22.0, 18));
+            cinema.adicionarFilme(new Filme("Evidências", 18.0, 12));
+
+            boolean continuar = true;
+
+            while (continuar) {
+                System.out.println("Que filme você deseja assistir?");
+                String nomeFilme = sc.nextLine();
+
+                Filme filmeEscolhido = cinema.buscarFilme(nomeFilme);
+                if (filmeEscolhido == null) {
+                    System.out.println("Filme não encontrado!");
+                    continue;
+                }
+
+                System.out.println("Qual assento você deseja?");
+                String assento = sc.nextLine();
+
+                System.out.println("Qual o seu nome?");
+                String nomeCliente = sc.nextLine();
+
+                System.out.println("Qual a sua idade?");
+                int idadeCliente = Integer.parseInt(sc.nextLine());
+
+                Cliente cliente = new Cliente(nomeCliente, idadeCliente);
+
+                try {
+                    cinema.venderIngresso(cliente, filmeEscolhido, assento);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+                System.out.println("Deseja comprar outro ingresso? (s/n)");
+                String resp = sc.nextLine();
+                if (!resp.equalsIgnoreCase("s")) {
+                    continuar = false;
+                }
+            }
+
+            sc.close();
+            System.out.println("\nIngressos vendidos:");
+            for (Ingresso i : cinema.getIngressosVendidos()) {
+                System.out.println("- " + i);
+            }
+        }
 }

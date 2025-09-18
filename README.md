@@ -18,6 +18,7 @@ O nome da pasta indica o propósito ou funcionalidade principal daquele exercíc
 ├── Lista002-objetos/
 ├── Lista003/
 ├── Lista005/
+├── Lista006/
 └── ...
 ```
 
@@ -39,17 +40,22 @@ A Lista002 refeita com foco em POO (Programação Orientada a Objeto)
 
 ### Lista003
 
-Terceira lista, na enunciados, como foco em POO também
+Terceira lista (seguindo por enunciados), na enunciados, como foco em POO também
 
 ### Lista005
 
-Terceira lista, na enunciados, com maior aprofundamento nos conceitos de POO
+Quinta lista, com maior aprofundamento nos conceitos de POO
+
+### Lista006
+
+Sexta lista, com introdução ao framework Spring para o desenvolvimento web
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
 - Java
+- Spring
 
 ---
 
@@ -57,10 +63,8 @@ Terceira lista, na enunciados, com maior aprofundamento nos conceitos de POO
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/GabrielMensor/ListadeJava.git
 ```
 2. Navegue até a pasta do exercício desejado:
 ```bash
-cd nome-do-repositorio/nome-da-pasta
-```
-3. Abra o arquivo index.html no seu navegador para visualizar o projeto.
+cd ListadeJava/nome-da-pasta

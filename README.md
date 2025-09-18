@@ -19,6 +19,7 @@ O nome da pasta indica o propósito ou funcionalidade principal daquele exercíc
 ├── Lista003/
 ├── Lista005/
 ├── Lista006/
+├── Lista007/
 └── ...
 ```
 
@@ -49,6 +50,10 @@ Quinta lista, com maior aprofundamento nos conceitos de POO
 ### Lista006
 
 Sexta lista, com introdução ao framework Spring para o desenvolvimento web
+
+### Lista007
+
+Sétima lista, com foco em HTTPS e REST
 
 ---
 
